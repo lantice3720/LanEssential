@@ -4,6 +4,7 @@ Core System of LANSERVER
 This is a minecraft plugin for paper 1.17.1 server.
 This plugin has many features, but many bugs too.
 It's on alpha, so it could be unstable.
+<br/>**NOT FOR LAN SERVER! THIS PLUGIN IS FOR PAPER SERVER!**
 
 ## Features
 
