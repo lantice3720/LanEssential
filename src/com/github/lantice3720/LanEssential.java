@@ -1,8 +1,9 @@
-package main;
+package com.github.lantice3720;
 
-import main.Commands.*;
-import main.Fx.Fx;
-import main.Listeners.*;
+import com.github.lantice3720.Commands.*;
+import com.github.lantice3720.Listeners.*;
+import com.github.lantice3720.Fx.ChunkFx;
+import com.github.lantice3720.Fx.Fx;
 import net.minecraft.server.level.EntityPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
 
 public class LanEssential extends JavaPlugin {
 
-    public static HashMap<Long, HashMap<String, Object>> chunkDataMap = new HashMap<>();
+    public static HashMap<String, HashMap<String, Object>> chunkDataMap = new HashMap<>();
 
     @Override
     public void onEnable(){
@@ -53,20 +54,23 @@ public class LanEssential extends JavaPlugin {
             FakePlayer.fakePlayer(fakePlayers.getString(key+".name"), fpLocation, fakePlayers.getString(key+".skin"), fakePlayers.getString(key+".signature"), UUID.fromString(fakePlayers.getString(key+".uuid")), fakePlayers.getString(key+".skinname"));
         }
 
-        HashMap<String, Object> chunkData = new HashMap<>();
-        String[] keys;
-        for(String key : chunkMana.getKeys(true)) {
-            keys = key.split("\\.");
-            if(Fx.isNumeric(keys[keys.length - 1])) continue;
+//        HashMap<String, Object> chunkData = new HashMap<>();
+//        String[] keys;
+//        for(String key : chunkMana.getKeys(true)) {
+//            keys = key.split("\\.");
+//            if(Fx.isNumeric(keys[keys.length - 1])) continue;
+//
+//            console.info("Loading Chunk Data: " + keys[0]);
+//
+//            chunkData.put(keys[1], chunkMana.get(key));
+//            chunkDataMap.put(Long.parseLong(keys[0]), chunkData);
+//        }
 
-            console.info("Loading Chunk Data: " + keys[0]);
-
-            chunkData.put(keys[1], chunkMana.get(key));
-            chunkDataMap.put(Long.parseLong(keys[0]), chunkData);
-        }
-
+        // load chunk near player
         for(org.bukkit.entity.Player player : Bukkit.getOnlinePlayers()) {
-            player.get
+            for(org.bukkit.Chunk chunk : ChunkFx.getNearbyChunks(player.getChunk(), 5)) {
+                ChunkFx.loadData(chunk, chunkMana, chunkDataMap, false);
+            }
         }
 
 
@@ -133,11 +137,11 @@ public class LanEssential extends JavaPlugin {
             DataManager.setDataFile(fakePlayers, uuid+".pos.world", world);
         }
 
-        for(Map.Entry<Long, HashMap<String, Object>> chunkDataTemp : chunkDataMap.entrySet()){
+        for(Map.Entry<String, HashMap<String, Object>> chunkDataTemp : chunkDataMap.entrySet()){
             for(Map.Entry<String, Object> chunkDataTemp2 : chunkDataTemp.getValue().entrySet()){
 //                Bukkit.getLogger().info("Saving Mana Data of Chunk: " + chunkDataTemp.getKey());
 
-                DataManager.setDataFile(chunkMana, chunkDataTemp.getKey()+"."+chunkDataTemp2.getKey(), String.valueOf(chunkDataTemp2.getValue()));
+                DataManager.setDataFile(chunkMana, chunkDataTemp.getKey().split("_")[1]+"."+chunkDataTemp.getKey().split("_")[0]+"."+chunkDataTemp2.getKey(), String.valueOf(chunkDataTemp2.getValue()));
             }
         }
 

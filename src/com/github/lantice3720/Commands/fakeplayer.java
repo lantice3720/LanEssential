@@ -1,6 +1,6 @@
-package main.Commands;
+package com.github.lantice3720.Commands;
 
-import main.FakePlayer;
+import com.github.lantice3720.FakePlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

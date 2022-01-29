@@ -1,14 +1,12 @@
-package main.Commands;
+package com.github.lantice3720.Commands;
 
-import main.Fx.ChunkFx;
-import main.LanEssential;
+import com.github.lantice3720.Fx.ChunkFx;
+import com.github.lantice3720.LanEssential;
 import org.bukkit.Chunk;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.HashMap;
 
 public class chunk implements CommandExecutor {
 

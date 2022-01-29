@@ -1,4 +1,4 @@
-package main.Commands;
+package com.github.lantice3720.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

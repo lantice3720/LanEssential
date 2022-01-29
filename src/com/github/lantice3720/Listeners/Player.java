@@ -1,6 +1,6 @@
-package main.Listeners;
+package com.github.lantice3720.Listeners;
 
-import main.FakePlayer;
+import com.github.lantice3720.FakePlayer;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

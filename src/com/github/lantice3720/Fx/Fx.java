@@ -1,4 +1,4 @@
-package main.Fx;
+package com.github.lantice3720.Fx;
 
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.libs.org.apache.commons.io.IOUtils;

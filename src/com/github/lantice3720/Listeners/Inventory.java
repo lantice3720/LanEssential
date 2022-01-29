@@ -1,4 +1,4 @@
-package main.Listeners;
+package com.github.lantice3720.Listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.HumanEntity;

@@ -1,4 +1,4 @@
-package main.Listeners;
+package com.github.lantice3720.Listeners;
 
 import io.papermc.paper.event.entity.EntityLoadCrossbowEvent;
 import org.bukkit.Bukkit;

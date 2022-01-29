@@ -1,6 +1,6 @@
-package main.Commands;
+package com.github.lantice3720.Commands;
 
-import main.Fx.Fx;
+import com.github.lantice3720.Fx.Fx;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;

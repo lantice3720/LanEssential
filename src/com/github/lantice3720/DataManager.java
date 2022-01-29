@@ -1,4 +1,4 @@
-package main;
+package com.github.lantice3720;
 
 
 import org.bukkit.Bukkit;

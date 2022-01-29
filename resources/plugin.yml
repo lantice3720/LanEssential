@@ -1,7 +1,7 @@
 name: LanEssential
-version: 0.3.5-alpha
+version: 0.3.6-alpha
 author: lanthanide
-main: main.LanEssential
+main: com.github.lantice3720.LanEssential
 api-version: 1.13
 commands:
   hi:

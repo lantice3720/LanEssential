@@ -1,9 +1,9 @@
-package main;
+package com.github.lantice3720;
 
+import com.github.lantice3720.Fx.Fx;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import main.Fx.Fx;
-import main.Listeners.Player;
+import com.github.lantice3720.Listeners.Player;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.*;
 import net.minecraft.network.syncher.DataWatcher;

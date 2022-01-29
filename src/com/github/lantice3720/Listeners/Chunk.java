@@ -1,7 +1,7 @@
-package main.Listeners;
+package com.github.lantice3720.Listeners;
 
-import main.Fx.ChunkFx;
-import main.LanEssential;
+import com.github.lantice3720.Fx.ChunkFx;
+import com.github.lantice3720.LanEssential;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
