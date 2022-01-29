@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+}
+
+jar {
+    archiveFileName = "lanEssential-${version}.jar"
+
+    destinationDir new File("D:/Servers/minecraft/lanserver/plugins/")
+}
+
+test {
+    useJUnitPlatform()
+}

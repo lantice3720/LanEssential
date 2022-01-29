@@ -1,0 +1,14 @@
+uuid:
+  name: name
+  uuid: uuid
+  skinname: skinname
+  skin: skin
+  signature: signature
+  pos:
+    x: x
+    y: y
+    z: z
+    yaw: yaw
+    pitch: pitch
+    world: world
+  metadata: metadata

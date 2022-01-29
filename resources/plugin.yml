@@ -1,0 +1,25 @@
+name: LanEssential
+version: 0.3.5-alpha
+author: lanthanide
+main: main.LanEssential
+api-version: 1.13
+commands:
+  hi:
+    description: Just for a test!
+    usage: /hi
+    permission-message: Wait, you don't have permission??
+  fakeplayer:
+    description: Creates a fakeplayer.
+    usage: /fakeplayer [name]
+    permission-message: Hmm, you forgot your permission.
+  modifyitem:
+    description: Set your item's id
+    usage: /modifyitem [id|model|name] [value]
+    permission-message: Hmm, you forgot your permission.
+  chunk:
+    description: Manage chunk you in
+    usage: /chunk [get|refresh] [mana|advanced]
+    permission-message: You don't hava permission to execute this command.
+    subcommands:
+      - mana
+      - get
