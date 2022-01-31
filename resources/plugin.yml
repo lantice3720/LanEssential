@@ -1,5 +1,5 @@
 name: LanEssential
-version: 0.3.6-alpha
+version: 0.3.7-alpha
 author: lanthanide
 main: com.github.lantice3720.LanEssential
 api-version: 1.13
@@ -19,7 +19,11 @@ commands:
   chunk:
     description: Manage chunk you in
     usage: /chunk [get|refresh] [mana|advanced]
-    permission-message: You don't hava permission to execute this command.
+    permission-message: You don't have permission to execute this command.
     subcommands:
       - mana
       - get
+  pstorage:
+    description: Debugging only. Returns data in persistent data storage.
+    usage: well, you might know it.
+    permission-message: You don't need to debug.

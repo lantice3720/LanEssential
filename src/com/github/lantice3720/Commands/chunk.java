@@ -26,8 +26,8 @@ public class chunk implements CommandExecutor {
                     }
                     switch (args[1]) {
                         case "nearby_mana", "mana" -> {
-                            sender.sendMessage("Mana Of Current Chunk: " + LanEssential.chunkDataMap.get(chunk.getChunkKey()).get("mana"));
-                            sender.sendMessage("Max Mana Of Current Chunk: " + LanEssential.chunkDataMap.get(chunk.getChunkKey()).get("manamax"));
+                            sender.sendMessage("Mana Of Current Chunk: " + LanEssential.chunkDataMap.get(chunk.getWorld().getUID()+"_"+chunk.getChunkKey()).get("mana"));
+                            sender.sendMessage("Max Mana Of Current Chunk: " + LanEssential.chunkDataMap.get(chunk.getWorld().getUID()+"_"+chunk.getChunkKey()).get("manamax"));
                         }
                         case "advanced" -> sender.sendMessage(
                                 "Chunk Key: " + chunk.getChunkKey() + "\n"

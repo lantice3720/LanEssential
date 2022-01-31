@@ -23,25 +23,34 @@ public class ChunkFx {
         HashMap<String, Object> chunkData = new HashMap<>();
         chunkData.put("manamax", Math.floor(Math.random()*2801 + 200));
         chunkData.put("mana", 100);
-        LanEssential.chunkDataMap.put(world.getChunkAt(x, z).getChunkKey()+"_"+world.getKey().hashCode(), chunkData);
+        LanEssential.chunkDataMap.put(world.getUID()+"_"+world.getChunkAt(x, z).getChunkKey(), chunkData);
     }
 
     public static void resetMana(Chunk chunk) {
         resetMana(chunk.getX(), chunk.getZ(), chunk.getWorld());
     }
 
-    // load chunk data at file and put to map
-    public static void loadData(Chunk chunk, FileConfiguration dataFile, HashMap<String, HashMap<String, Object>> map, boolean force){
+    // load chunk mana at file and put to map
+    public static void loadMana(Chunk chunk, FileConfiguration dataFile, HashMap<String, HashMap<String, Object>> map, boolean force){
         if(force && map.containsKey(chunk.getChunkKey()+"_"+chunk.getWorld().getUID())) {
+            return;
+        }
+
+        if(dataFile.get(chunk.getWorld().getUID()+"."+chunk.getChunkKey()) == null){
+            resetMana(chunk);
             return;
         }
 
         HashMap<String, Object> value = new HashMap<>();
 
-        value.put("mana", dataFile.get(chunk.getWorld().getUID()+"."+chunk.getChunkKey())+".mana");
-        value.put("manamax", dataFile.get(chunk.getWorld().getUID()+"."+chunk.getChunkKey())+".manamax");
+        value.put("mana", dataFile.get(chunk.getWorld().getUID()+"."+chunk.getChunkKey()+".mana"));
+        value.put("manamax", dataFile.get(chunk.getWorld().getUID()+"."+chunk.getChunkKey()+".manamax"));
 
-        map.put(chunk.getChunkKey()+"_"+ chunk.getWorld().getUID(), value);
+        map.put(chunk.getWorld().getUID()+"_"+chunk.getChunkKey(), value);
+    }
+
+    public static void loadMana(Chunk chunk, FileConfiguration dataFile) {
+        loadMana(chunk, dataFile, LanEssential.chunkDataMap, false);
     }
 
 //    // save chunk to file

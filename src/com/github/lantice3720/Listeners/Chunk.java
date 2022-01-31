@@ -15,7 +15,7 @@ public class Chunk implements Listener {
     @EventHandler
     public void onChunkLoad(ChunkLoadEvent e){
         org.bukkit.Chunk chunk = e.getChunk();
-        if(e.isNewChunk() || !LanEssential.chunkDataMap.containsKey(chunk.getChunkKey()) || !LanEssential.chunkDataMap.get(chunk.getChunkKey()).containsKey("manamax") || !LanEssential.chunkDataMap.get(chunk.getChunkKey()).containsKey("mana")) {
+        if(e.isNewChunk() || !LanEssential.chunkDataMap.containsKey(chunk.getWorld().getUID()+"_"+chunk.getChunkKey())) {
 //            Bukkit.getOnlinePlayers().forEach((player) -> player.sendMessage("loaded chunk"));
             ChunkFx.resetMana(e.getChunk());
         }

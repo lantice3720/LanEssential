@@ -32,6 +32,8 @@ public class LanEssential extends JavaPlugin {
         this.getCommand("modifyitem").setExecutor(new modifyitem(this));
         this.getCommand("chunk").setExecutor(new chunk());
         this.getCommand("chunk").setTabCompleter(new chunkTabCompleter());
+        this.getCommand("pstorage").setExecutor(new pstorage(this));
+        this.getCommand("pstorage").setTabCompleter(new pstorage(this));
 
         // register events
         getServer().getPluginManager().registerEvents(new Chating(this), this);
@@ -64,12 +66,13 @@ public class LanEssential extends JavaPlugin {
 //
 //            chunkData.put(keys[1], chunkMana.get(key));
 //            chunkDataMap.put(Long.parseLong(keys[0]), chunkData);
+//            console.info(key);
 //        }
 
         // load chunk near player
         for(org.bukkit.entity.Player player : Bukkit.getOnlinePlayers()) {
             for(org.bukkit.Chunk chunk : ChunkFx.getNearbyChunks(player.getChunk(), 5)) {
-                ChunkFx.loadData(chunk, chunkMana, chunkDataMap, false);
+                ChunkFx.loadMana(chunk, chunkMana, chunkDataMap, false);
             }
         }
 
@@ -141,7 +144,7 @@ public class LanEssential extends JavaPlugin {
             for(Map.Entry<String, Object> chunkDataTemp2 : chunkDataTemp.getValue().entrySet()){
 //                Bukkit.getLogger().info("Saving Mana Data of Chunk: " + chunkDataTemp.getKey());
 
-                DataManager.setDataFile(chunkMana, chunkDataTemp.getKey().split("_")[1]+"."+chunkDataTemp.getKey().split("_")[0]+"."+chunkDataTemp2.getKey(), String.valueOf(chunkDataTemp2.getValue()));
+                DataManager.setDataFile(chunkMana, chunkDataTemp.getKey().split("_")[0]+"."+chunkDataTemp.getKey().split("_")[1]+"."+chunkDataTemp2.getKey(), String.valueOf(chunkDataTemp2.getValue()));
             }
         }
 
